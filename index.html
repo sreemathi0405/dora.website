@@ -20,19 +20,15 @@
             border-radius: 15px;
             box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
         }
-        .love-notes {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .note {
+        .love-note {
             background: #ffeb3b;
             color: #000;
             padding: 10px;
-            margin: 5px;
+            margin: 10px;
             border-radius: 10px;
             font-weight: bold;
             max-width: 80%;
+            display: inline-block;
         }
         button {
             background: #ff66b2;
@@ -63,8 +59,8 @@
                 document.getElementById("question").innerText = "Yayy! 💖";
             }
         }
-        function updateGift() {
-            const days = [
+        function updateContent() {
+            const gifts = [
                 "Rose Day - 🌹 I give you a rose!",
                 "Propose Day - 💍 I propose to you!",
                 "Chocolate Day - 🍫 I give you chocolates!",
@@ -74,14 +70,24 @@
                 "Kiss Day - 💋 I give you a kiss!",
                 "Valentine's Day - 💖 Happy Valentine's Day!"
             ];
+            const loveNotes = [
+                "You are the peanut butter to my jelly. The stars to my sky. The love of my life.",
+                "Every moment with you is like a dream come true.",
+                "I fall in love with you a little more every day.",
+                "You make my world brighter just by being in it.",
+                "Forever is not long enough with you.",
+                "Your love is the melody to my heart.",
+                "We will spend more Valentine's together, maybe now virtually but later closer together... 💕 Nona loves you a lot, Thangamey!"
+            ];
             let today = new Date();
             let start = new Date('February 7, 2025');
-            let index = Math.min(Math.floor((today - start) / (1000 * 60 * 60 * 24)), days.length - 1);
-            document.getElementById("gift").innerText = days[index];
+            let index = Math.min(Math.floor((today - start) / (1000 * 60 * 60 * 24)), gifts.length - 1);
+            document.getElementById("gift").innerText = gifts[index];
+            document.getElementById("loveNote").innerText = loveNotes[index];
         }
     </script>
 </head>
-<body onload="updateGift()">
+<body onload="updateContent()">
     <audio autoplay loop>
         <source src="apna_bana_le.mp3" type="audio/mpeg">
     </audio>
@@ -91,13 +97,8 @@
         <button onclick="askAgain(1)">No</button>
         <br><br>
         <h2 id="gift"></h2>
-        <h2>Love Notes 💌</h2>
-        <div class="love-notes">
-            <div class="note">"You are the peanut butter to my jelly. The stars to my sky. The love of my life."</div>
-            <div class="note">"Every moment with you is like a dream come true."</div>
-            <div class="note">"I fall in love with you a little more every day."</div>
-            <div class="note">"We will spend more Valentine's together, maybe now virtually but later closer together... 💕 Nona loves you a lot, Thangamey!"</div>
-        </div>
+        <h2>Love Note 💌</h2>
+        <div class="love-note" id="loveNote"></div>
         <h2>💖 Our Playlist 💖</h2>
         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/05Tnu6sTIYrbWzTtx79Yxi?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
         <h3>Countdown to Valentine's Day</h3>
@@ -117,3 +118,4 @@
     </div>
 </body>
 </html>
+
